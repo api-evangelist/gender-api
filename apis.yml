@@ -2,15 +2,16 @@ aid: gender-api
 name: Gender API
 description: >-
   Gender-API is AI powered and helps you to find out whether a first name is
-  more likely be used by males or females. 
+  more likely be used by males or females.
 type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
+  - Gender
+  - Names
 created: '2025-01-07'
-modified: '2025-01-07'
+modified: '2026-03-16'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -19,13 +20,17 @@ apis:
     name: Gender API
     description: >-
       Gender-API is AI powered and helps you to find out whether a first name is
-      more likely be used by males or females. 
-    humanURL: ' https://gender-api.com/'
+      more likely be used by males or females.
+    humanURL: https://gender-api.com/
     tags:
-      - API
+      - Gender
+      - Names
     properties:
       - type: Documentation
-        url: ' https://gender-api.com/'
+        url: https://gender-api.com/
+common:
+  - type: Website
+    url: https://gender-api.com/
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
