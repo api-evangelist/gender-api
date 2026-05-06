@@ -1,0 +1,235 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Gender API
+  description: Gender-API determines whether a first name is more likely used by males or females, with optional localization
+    by country, IP address, or browser locale. The API returns a gender prediction and an accuracy score, and supports email
+    parsing, multi-name lookup, and country-of-origin queries.
+  tags:
+  - Gender
+  - Api
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: gender-api
+    baseUri: https://gender-api.com
+    description: Gender API HTTP API.
+    authentication:
+      type: apikey
+      in: query
+      name: key
+      value: '{{GENDER_API_TOKEN}}'
+    resources:
+    - name: get
+      path: /get
+      operations:
+      - name: getgender
+        method: GET
+        description: Get gender for a name
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          description: First name (or full name with split=true) to look up. Supports semicolon-separated lists when multi=true.
+        - name: email
+          in: query
+          type: string
+          description: Email address from which to extract the name.
+        - name: country
+          in: query
+          type: string
+          description: ISO 3166-1 alpha-2 country code to localize the lookup.
+        - name: ip
+          in: query
+          type: string
+          description: Client IP address used to localize the lookup.
+        - name: locale
+          in: query
+          type: string
+          description: Browser locale (e.g. en_US, de_DE) used to localize the lookup.
+        - name: split
+          in: query
+          type: boolean
+          description: When true, splits a full name and resolves the first name automatically.
+        - name: multi
+          in: query
+          type: boolean
+          description: When true, accepts a semicolon-separated list of names (max 100 per request).
+        - name: key
+          in: query
+          type: string
+          required: true
+          description: Gender-API key (alternatively send via apiKey query or Authorization header per account configuration).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: get-country-of-origin
+      path: /get-country-of-origin
+      operations:
+      - name: getcountryoforigin
+        method: GET
+        description: Get likely country of origin for a name
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+        - name: key
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: get-stats
+      path: /get-stats
+      operations:
+      - name: getstats
+        method: GET
+        description: Get account statistics
+        inputParameters:
+        - name: key
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: gender-api-rest
+    description: REST adapter for Gender API.
+    resources:
+    - path: /get
+      name: getgender
+      operations:
+      - method: GET
+        name: getgender
+        description: Get gender for a name
+        call: gender-api.getgender
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /get-country-of-origin
+      name: getcountryoforigin
+      operations:
+      - method: GET
+        name: getcountryoforigin
+        description: Get likely country of origin for a name
+        call: gender-api.getcountryoforigin
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /get-stats
+      name: getstats
+      operations:
+      - method: GET
+        name: getstats
+        description: Get account statistics
+        call: gender-api.getstats
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: gender-api-mcp
+    transport: http
+    description: MCP adapter for Gender API for AI agent use.
+    tools:
+    - name: getgender
+      description: Get gender for a name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gender-api.getgender
+      with:
+        name: tools.name
+        email: tools.email
+        country: tools.country
+        ip: tools.ip
+        locale: tools.locale
+        split: tools.split
+        multi: tools.multi
+        key: tools.key
+      inputParameters:
+      - name: name
+        type: string
+        description: First name (or full name with split=true) to look up. Supports semicolon-separated lists when multi=true.
+      - name: email
+        type: string
+        description: Email address from which to extract the name.
+      - name: country
+        type: string
+        description: ISO 3166-1 alpha-2 country code to localize the lookup.
+      - name: ip
+        type: string
+        description: Client IP address used to localize the lookup.
+      - name: locale
+        type: string
+        description: Browser locale (e.g. en_US, de_DE) used to localize the lookup.
+      - name: split
+        type: boolean
+        description: When true, splits a full name and resolves the first name automatically.
+      - name: multi
+        type: boolean
+        description: When true, accepts a semicolon-separated list of names (max 100 per request).
+      - name: key
+        type: string
+        description: Gender-API key (alternatively send via apiKey query or Authorization header per account configuration).
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcountryoforigin
+      description: Get likely country of origin for a name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gender-api.getcountryoforigin
+      with:
+        name: tools.name
+        key: tools.key
+      inputParameters:
+      - name: name
+        type: string
+        description: name
+        required: true
+      - name: key
+        type: string
+        description: key
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getstats
+      description: Get account statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gender-api.getstats
+      with:
+        key: tools.key
+      inputParameters:
+      - name: key
+        type: string
+        description: key
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GENDER_API_TOKEN: GENDER_API_TOKEN
