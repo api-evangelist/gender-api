@@ -68,6 +68,8 @@ common:
     url: https://gender-api.com/en/privacy
   - type: Blog
     url: https://gender-api.com/en/blog
+  - type: LLMsTxt
+    url: https://gender-api.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
