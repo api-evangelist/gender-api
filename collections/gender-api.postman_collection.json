@@ -1,0 +1,508 @@
+{
+  "item": [
+    {
+      "id": "f44a50d0-5d0f-4dcf-ba73-600eabd4c091",
+      "name": "Get gender for a name",
+      "request": {
+        "name": "Get gender for a name",
+        "description": {
+          "content": "Returns a gender prediction (male, female, or unknown) for the supplied first name with an accuracy score. Supports localization by country, IP, or locale, and parsing of full names or email addresses.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "get"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "First name (or full name with split=true) to look up. Supports semicolon-separated lists when multi=true."
+            },
+            {
+              "disabled": false,
+              "key": "email",
+              "value": "<email>",
+              "description": "Email address from which to extract the name."
+            },
+            {
+              "disabled": false,
+              "key": "country",
+              "value": "<string>",
+              "description": "ISO 3166-1 alpha-2 country code to localize the lookup."
+            },
+            {
+              "disabled": false,
+              "key": "ip",
+              "value": "<string>",
+              "description": "Client IP address used to localize the lookup."
+            },
+            {
+              "disabled": false,
+              "key": "locale",
+              "value": "<string>",
+              "description": "Browser locale (e.g. en_US, de_DE) used to localize the lookup."
+            },
+            {
+              "disabled": false,
+              "key": "split",
+              "value": "<boolean>",
+              "description": "When true, splits a full name and resolves the first name automatically."
+            },
+            {
+              "disabled": false,
+              "key": "multi",
+              "value": "<boolean>",
+              "description": "When true, accepts a semicolon-separated list of names (max 100 per request)."
+            },
+            {
+              "disabled": false,
+              "key": "key",
+              "value": "<string>",
+              "description": "(Required) Gender-API key (alternatively send via apiKey query or Authorization header per account configuration)."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5841cb02-051f-4275-b253-7ff4a90c6736",
+          "name": "Gender prediction result",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "email",
+                  "value": "<email>"
+                },
+                {
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ip",
+                  "value": "<string>"
+                },
+                {
+                  "key": "locale",
+                  "value": "<string>"
+                },
+                {
+                  "key": "split",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "multi",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"gender\": \"unknown\",\n  \"samples\": 4221,\n  \"accuracy\": 12,\n  \"credits_used\": 3956,\n  \"duration\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e399e1b3-7a20-4cf6-aca5-75ca95a21996",
+          "name": "Missing or invalid API key",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "email",
+                  "value": "<email>"
+                },
+                {
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ip",
+                  "value": "<string>"
+                },
+                {
+                  "key": "locale",
+                  "value": "<string>"
+                },
+                {
+                  "key": "split",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "multi",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "cd43e711-56c7-4147-82db-c527cab4fba4",
+          "name": "Rate limit or credit limit exceeded",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "email",
+                  "value": "<email>"
+                },
+                {
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ip",
+                  "value": "<string>"
+                },
+                {
+                  "key": "locale",
+                  "value": "<string>"
+                },
+                {
+                  "key": "split",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "multi",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "6a4600f7-5782-4ad6-81b0-7d81c516b649",
+      "name": "Get likely country of origin for a name",
+      "request": {
+        "name": "Get likely country of origin for a name",
+        "description": {
+          "content": "Returns the most likely country (or list of countries) of origin for the supplied first or last name. Costs more credits per query than /get.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "get-country-of-origin"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "key",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "fc5546e8-5de1-4119-8b05-dc95b30128fe",
+          "name": "Country of origin prediction",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "get-country-of-origin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"country_of_origin\": [\n    {\n      \"country\": \"string\",\n      \"probability\": 160.75331088194145\n    },\n    {\n      \"country\": \"string\",\n      \"probability\": 7969.852803296368\n    }\n  ],\n  \"credits_used\": 1117,\n  \"duration\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4d2da75f-1c1a-4cd9-a1a3-cbb0052b957c",
+      "name": "Get account statistics",
+      "request": {
+        "name": "Get account statistics",
+        "description": {
+          "content": "Returns account information including remaining credits, plan details, and usage statistics for the supplied API key.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "get-stats"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "key",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4c6507ee-ee62-4bc0-b4f1-cb4b6cb9b583",
+          "name": "Account statistics",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "get-stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "key",
+                  "value": "<API Key>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"remaining_requests\": 547,\n  \"is_limit_reached\": true,\n  \"server_time\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gender-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "88f26799-bf88-4b2f-b484-188ab6fa2063",
+    "name": "Gender API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Gender-API determines whether a first name is more likely used by males or females, with optional localization by country, IP address, or browser locale. The API returns a gender prediction and an accuracy score, and supports email parsing, multi-name lookup, and country-of-origin queries.\n\nContact Support:\n Name: Gender-API Support",
+      "type": "text/plain"
+    }
+  }
+}

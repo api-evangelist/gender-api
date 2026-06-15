@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gender API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get gender for a name",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://gender-api.com/get",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "First name (or full name with split=true) to look up. Supports semicolon-separated lists when multi=true."
+          },
+          {
+            "name": "email",
+            "value": "",
+            "type": "query",
+            "description": "Email address from which to extract the name."
+          },
+          {
+            "name": "country",
+            "value": "",
+            "type": "query",
+            "description": "ISO 3166-1 alpha-2 country code to localize the lookup."
+          },
+          {
+            "name": "ip",
+            "value": "",
+            "type": "query",
+            "description": "Client IP address used to localize the lookup."
+          },
+          {
+            "name": "locale",
+            "value": "",
+            "type": "query",
+            "description": "Browser locale (e.g. en_US, de_DE) used to localize the lookup."
+          },
+          {
+            "name": "split",
+            "value": "",
+            "type": "query",
+            "description": "When true, splits a full name and resolves the first name automatically."
+          },
+          {
+            "name": "multi",
+            "value": "",
+            "type": "query",
+            "description": "When true, accepts a semicolon-separated list of names (max 100 per request)."
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "query",
+            "description": "Gender-API key (alternatively send via apiKey query or Authorization header per account configuration)."
+          }
+        ]
+      },
+      "docs": "Returns a gender prediction (male, female, or unknown) for the supplied first name with an accuracy score. Supports localization by country, IP, or locale, and parsing of full names or email addresses."
+    },
+    {
+      "info": {
+        "name": "Get likely country of origin for a name",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://gender-api.com/get-country-of-origin",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "key",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns the most likely country (or list of countries) of origin for the supplied first or last name. Costs more credits per query than /get."
+    },
+    {
+      "info": {
+        "name": "Get account statistics",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://gender-api.com/get-stats",
+        "params": [
+          {
+            "name": "key",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns account information including remaining credits, plan details, and usage statistics for the supplied API key."
+    }
+  ],
+  "bundled": true
+}
