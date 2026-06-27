@@ -3,16 +3,12 @@
   "feeds": [
     {
       "source": "https://gender-api.com/en/blog",
-      "feed_url": "https://gender-api.com/en/blog",
-      "title": "",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
-    },
-    {
-      "source": "https://gender-api.com/en/privacy",
-      "error": "HTTPError"
+      "method": "agent-scrape"
     }
   ],
+  "fetched": "2026-06-27T12:43:12Z",
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "agent_pulled": "2026-06-27"
 }

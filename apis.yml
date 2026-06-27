@@ -41,7 +41,7 @@ apis:
         url: https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/openapi/gender-api-openapi.yml
       - type: Pricing
         url: https://gender-api.com/en/pricing
-      - type: SignUp
+      - type: Signup
         url: https://gender-api.com/en/signup
       - type: StatusPage
         url: https://gender-api.com/
@@ -56,7 +56,7 @@ common:
     url: https://gender-api.com/en/api-docs
   - type: Pricing
     url: https://gender-api.com/en/pricing
-  - type: SignUp
+  - type: Signup
     url: https://gender-api.com/en/signup
   - type: Login
     url: https://gender-api.com/en/login
@@ -68,7 +68,7 @@ common:
     url: https://gender-api.com/en/privacy
   - type: Blog
     url: https://gender-api.com/en/blog
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://gender-api.com/llms.txt
 maintainers:
   - FN: Kin Lane
