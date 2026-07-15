@@ -46,6 +46,8 @@ apis:
       - type: StatusPage
         url: https://gender-api.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/gender-api-agentic-access.yml
   - type: DomainSecurity
     url: security/gender-api-domain-security.yml
   - type: Authentication
