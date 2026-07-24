@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: Gender Get API
+  description: Gender-API determines whether a first name is more likely used by males or females, with optional localization by country, IP address, or browser locale. The API returns a gender prediction and an accuracy score, and supports email parsing, multi-name lookup, and country-of-origin queries.
+  version: '2.0'
+  contact:
+    name: Gender-API Support
+    url: https://gender-api.com/en/contact
+  license:
+    name: Gender-API Terms of Service
+    url: https://gender-api.com/en/terms-and-conditions
+servers:
+- url: https://gender-api.com
+  description: Gender-API production endpoint
+security:
+- apiKey: []
+tags:
+- name: Get
+paths:
+  /get:
+    get:
+      summary: Get gender for a name
+      description: Returns a gender prediction (male, female, or unknown) for the supplied first name with an accuracy score. Supports localization by country, IP, or locale, and parsing of full names or email addresses.
+      operationId: getGender
+      parameters:
+      - name: name
+        in: query
+        description: First name (or full name with split=true) to look up. Supports semicolon-separated lists when multi=true.
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: Email address from which to extract the name.
+        schema:
+          type: string
+          format: email
+      - name: country
+        in: query
+        description: ISO 3166-1 alpha-2 country code to localize the lookup.
+        schema:
+          type: string
+      - name: ip
+        in: query
+        description: Client IP address used to localize the lookup.
+        schema:
+          type: string
+      - name: locale
+        in: query
+        description: Browser locale (e.g. en_US, de_DE) used to localize the lookup.
+        schema:
+          type: string
+      - name: split
+        in: query
+        description: When true, splits a full name and resolves the first name automatically.
+        schema:
+          type: boolean
+      - name: multi
+        in: query
+        description: When true, accepts a semicolon-separated list of names (max 100 per request).
+        schema:
+          type: boolean
+      - name: key
+        in: query
+        required: true
+        description: Gender-API key (alternatively send via apiKey query or Authorization header per account configuration).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Gender prediction result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenderResponse'
+        '401':
+          description: Missing or invalid API key
+        '429':
+          description: Rate limit or credit limit exceeded
+      tags:
+      - Get
+components:
+  schemas:
+    GenderResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        gender:
+          type: string
+          enum:
+          - male
+          - female
+          - unknown
+        samples:
+          type: integer
+        accuracy:
+          type: integer
+          minimum: 0
+          maximum: 100
+        credits_used:
+          type: integer
+        duration:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key
