@@ -7,9 +7,22 @@ description: >-
   queries. Gender-API is delivered as a metered REST API with credit-based subscription plans and integrates with
   Zapier, Postman, Google Sheets, and HubSpot.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/gender-api.png
 created: '2025-01-07'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/apis.yml
@@ -22,29 +35,61 @@ tags:
   - Names
   - Personal Data
 apis:
-  - aid: gender-api:gender-api
-    name: Gender API
-    description: >-
-      Gender-API determines whether a first name is more likely used by males or females, with optional localization by
-      country, IP address, or browser locale. Supports email parsing, full-name splitting, multi-name lookups, and
-      country-of-origin queries.
-    humanURL: https://gender-api.com/
-    baseURL: https://gender-api.com
-    tags:
-      - AI
-      - Gender
-      - Names
-    properties:
-      - type: Documentation
-        url: https://gender-api.com/en/api-docs
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/openapi/gender-api-openapi.yml
-      - type: Pricing
-        url: https://gender-api.com/en/pricing
-      - type: Signup
-        url: https://gender-api.com/en/signup
-      - type: StatusPage
-        url: https://gender-api.com/
+- aid: gender-api:gender-api-get-api
+  name: Gender API Get API
+  description: The Get API from Gender API — 1 operation(s) for get.
+  humanURL: https://gender-api.com/
+  baseURL: https://gender-api.com
+  tags:
+  - Get
+  properties:
+  - type: OpenAPI
+    url: openapi/gender-api-get-api-openapi.yml
+  - type: Documentation
+    url: https://gender-api.com/en/api-docs
+  - type: Pricing
+    url: https://gender-api.com/en/pricing
+  - type: Signup
+    url: https://gender-api.com/en/signup
+  - type: StatusPage
+    url: https://gender-api.com/
+- aid: gender-api:gender-api-get-country-of-origin-api
+  name: Gender API Get Country Of Origin API
+  description: >-
+    The Get Country Of Origin API from Gender API — 1 operation(s) for get country of origin.
+  humanURL: https://gender-api.com/
+  baseURL: https://gender-api.com
+  tags:
+  - Get Country Of Origin
+  properties:
+  - type: OpenAPI
+    url: openapi/gender-api-get-country-of-origin-api-openapi.yml
+  - type: Documentation
+    url: https://gender-api.com/en/api-docs
+  - type: Pricing
+    url: https://gender-api.com/en/pricing
+  - type: Signup
+    url: https://gender-api.com/en/signup
+  - type: StatusPage
+    url: https://gender-api.com/
+- aid: gender-api:gender-api-get-stats-api
+  name: Gender API Get Stats API
+  description: The Get Stats API from Gender API — 1 operation(s) for get stats.
+  humanURL: https://gender-api.com/
+  baseURL: https://gender-api.com
+  tags:
+  - Get Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/gender-api-get-stats-api-openapi.yml
+  - type: Documentation
+    url: https://gender-api.com/en/api-docs
+  - type: Pricing
+    url: https://gender-api.com/en/pricing
+  - type: Signup
+    url: https://gender-api.com/en/signup
+  - type: StatusPage
+    url: https://gender-api.com/
 common:
   - type: AgenticAccess
     url: agentic-access/gender-api-agentic-access.yml
