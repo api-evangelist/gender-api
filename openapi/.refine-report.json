@@ -1,0 +1,18 @@
+{
+  "provider": "gender-api",
+  "sources": [
+    "gender-api-get-api-openapi.yml",
+    "gender-api-get-country-of-origin-api-openapi.yml",
+    "gender-api-get-stats-api-openapi.yml"
+  ],
+  "outputs": [
+    "gender-api-get-api-openapi.yml",
+    "gender-api-get-country-of-origin-api-openapi.yml",
+    "gender-api-get-stats-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
