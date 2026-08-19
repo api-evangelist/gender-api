@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gender Get Get Stats API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gender-api.com/get-stats",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns account information including remaining credits, plan details, and usage statistics for the supplied API key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

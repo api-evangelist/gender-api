@@ -1,0 +1,135 @@
+{
+  "item": [
+    {
+      "id": "a12c3818-6a9d-4861-8948-53712a48bb9a",
+      "name": "Get Stats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d6b2000-31a3-4bcb-ad6f-315f6a62f5bc",
+          "name": "Get account statistics",
+          "request": {
+            "name": "Get account statistics",
+            "description": {
+              "content": "Returns account information including remaining credits, plan details, and usage statistics for the supplied API key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "get-stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6f4606b-d74a-4ab9-8c85-dc372fce086f",
+              "name": "Account statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get-stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"remaining_requests\": 3638,\n  \"is_limit_reached\": false,\n  \"server_time\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gender-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f8885da1-e2a3-4d0d-91d8-2063142410a5",
+    "name": "Gender Get Get Stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Gender-API determines whether a first name is more likely used by males or females, with optional localization by country, IP address, or browser locale. The API returns a gender prediction and an accuracy score, and supports email parsing, multi-name lookup, and country-of-origin queries.\n\nContact Support:\n Name: Gender-API Support",
+      "type": "text/plain"
+    }
+  }
+}

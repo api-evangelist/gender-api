@@ -1,0 +1,145 @@
+{
+  "item": [
+    {
+      "id": "877d3829-3b12-4194-8705-daa447f83c0a",
+      "name": "Get Country Of Origin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "666c8f4c-ec81-41d5-a106-501fa712fade",
+          "name": "Get likely country of origin for a name",
+          "request": {
+            "name": "Get likely country of origin for a name",
+            "description": {
+              "content": "Returns the most likely country (or list of countries) of origin for the supplied first or last name. Costs more credits per query than /get.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "get-country-of-origin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c85feb0b-ef4c-4c23-b75b-4b4c95f60064",
+              "name": "Country of origin prediction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get-country-of-origin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"country_of_origin\": [\n    {\n      \"country\": \"string\",\n      \"probability\": 3203.6607590619747\n    },\n    {\n      \"country\": \"string\",\n      \"probability\": 2608.9682891845855\n    }\n  ],\n  \"credits_used\": 2117,\n  \"duration\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gender-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a4e437b1-1a5b-44e6-b950-207c314565a8",
+    "name": "Gender Get Get Country Of Origin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Gender-API determines whether a first name is more likely used by males or females, with optional localization by country, IP address, or browser locale. The API returns a gender prediction and an accuracy score, and supports email parsing, multi-name lookup, and country-of-origin queries.\n\nContact Support:\n Name: Gender-API Support",
+      "type": "text/plain"
+    }
+  }
+}

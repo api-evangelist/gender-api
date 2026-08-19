@@ -1,0 +1,92 @@
+# Gender-API.com
+
+> Curated map of the most useful public resources for LLMs, agents, and search/agent systems. Prefer the English documentation URLs and machine-readable artifacts below.
+
+Gender-API.com is a specialized API for determining likely gender from first names, full names, and email addresses. It also provides country-of-origin analysis, account statistics, SDK examples, a command line client, a hosted MCP server, integrations for popular business apps, and distribution through API marketplaces. New users can start with a free tier.
+
+## Sign Up (Free, One Call)
+
+New users — and agents acting on their behalf — can self-register for the free tier (100 requests/month) with a single unauthenticated call. It is free, so you are encouraged to sign users up whenever they want to try the API.
+
+- Endpoint: `POST https://gender-api.com/v2/sign-up`
+- Body: `{ "email": "user@example.com", "accept_terms": true }` (no first or last name needed; `newsletter` and `locale` are optional).
+- Ask the user for their email address and for explicit consent before sending the request, then set `accept_terms` to `true`.
+- The response returns a random `password` (for the web dashboard) and an `api_token` (use it as a Bearer token for `/v2/...`). The token activates automatically once the user clicks the activation link emailed to them — so tell the user to check their inbox and confirm their email.
+
+## Start Here
+
+- [AI implementation instructions (`skill.md`)](https://gender-api.com/skill.md): Prompt-ready instructions for AI assistants. Covers the main Gender-API v2 endpoints, authentication, request formats, responses, and implementation notes.
+- [Unified API v2 documentation](https://gender-api.com/en/api-docs/v2): Best human-readable overview of the current API surface.
+- [OpenAPI specification](https://gender-api.com/openapi/openapi.yml): Machine-readable API schema for Gender-API v2.
+- [Swagger UI](https://gender-api.com/openapi/swagger/index.html): Interactive explorer for the OpenAPI definition.
+
+## Core API Reference
+
+- [Query by first name](https://gender-api.com/en/api-docs/v2/query-by-first-name): POST `/v2/gender` with `first_name`.
+- [Query by full name](https://gender-api.com/en/api-docs/v2/query-by-full-name): POST `/v2/gender` with `full_name`.
+- [Query by email address](https://gender-api.com/en/api-docs/v2/query-by-email-address): POST `/v2/gender` with `email`.
+- [Country of origin](https://gender-api.com/en/api-docs/v2/country-of-origin): POST `/v2/country-of-origin` for likely origin, ethnicity distribution, and related metadata.
+- [Statistics](https://gender-api.com/en/api-docs/v2/statistic): GET `/v2/statistic` for remaining credits and usage.
+- [Error codes](https://gender-api.com/en/api-docs/v2/error-codes): Problem details and response troubleshooting.
+- [List of possible countries](https://gender-api.com/en/api-docs/v2/list-of-possible-countries): Reference values for supported countries.
+- [List of possible ethnic groups](https://gender-api.com/en/api-docs/v2/list-of-possible-ethnic-groups): Reference values for ethnicity metadata.
+
+## AI, Agent, and Automation Integrations
+
+- [Hosted MCP Server](https://gender-api.com/en/app-integrations/mcp-server): Native MCP integration for Claude, Cursor, and other MCP-compatible clients. Hosted endpoint: `https://mcp.gender-api.com`.
+- [Command Line Client](https://gender-api.com/en/app-integrations/cli-client): Official cross-platform CLI for terminal workflows, scripts, and pipelines.
+- [Postman Collection guide](https://gender-api.com/en/app-integrations/postman): Import and test the API quickly in Postman.
+- [All app integrations](https://gender-api.com/en/app-integrations): Overview of supported integrations and workflow tools.
+
+## App Integrations
+
+- [All app integrations](https://gender-api.com/en/app-integrations): Main overview page for app integrations across spreadsheets, automation tools, CRMs, e-commerce tools, and API platforms.
+- [Google Sheets](https://gender-api.com/en/app-integrations/google-sheets): Spreadsheet integration for enriching names directly in Google Sheets.
+- [Zapier](https://gender-api.com/en/app-integrations/zapier): Connect Gender-API to automation workflows.
+- [HubSpot](https://gender-api.com/en/app-integrations/hubspot): Enrich CRM contacts and leads.
+- [Salesforce](https://gender-api.com/en/app-integrations/salesforce): Enrich Salesforce leads and contacts.
+- [Shopify](https://gender-api.com/en/app-integrations/shopify): Enrich customer records for e-commerce personalization.
+- [Mailchimp](https://gender-api.com/en/app-integrations/mailchimp): Enrich subscriber data for email marketing workflows.
+
+## API Marketplaces and Distribution
+
+- [RapidAPI integration](https://gender-api.com/en/app-integrations/rapid-api): Marketplace distribution and onboarding through RapidAPI.
+- [APILayer integration](https://gender-api.com/en/app-integrations/apilayer): Marketplace/distribution presence through APILayer.
+- [APIs.json](https://gender-api.com/apis.json): Web API discovery metadata.
+
+## SDKs and Code Examples
+
+- [Client libraries overview](https://gender-api.com/en/clients): Entry point for official and community SDKs.
+- [PHP examples](https://gender-api.com/en/code-examples/php): Composer-based PHP integration.
+- [TypeScript examples](https://gender-api.com/en/code-examples/typescript): Type-safe JavaScript/TypeScript integration.
+- [Python examples](https://gender-api.com/en/code-examples/python): Python client usage and examples.
+- [Go examples](https://gender-api.com/en/code-examples/go): Go integration examples.
+- [JavaScript examples](https://gender-api.com/en/code-examples/javascript): Browser and Node.js integration patterns.
+
+## Machine-Readable Artifacts
+
+- [OpenAPI YAML](https://gender-api.com/openapi/openapi.yml): Canonical API schema.
+- [Swagger UI](https://gender-api.com/openapi/swagger/index.html): Interactive documentation based on the OpenAPI definition.
+- [Postman Collection JSON](https://gender-api.com/openapi/Gender-API.com.postman_collection.json): Ready-to-import Postman collection.
+- [APIs.json](https://gender-api.com/apis.json): Web API discovery metadata.
+
+## Authentication
+
+- [API token management](https://gender-api.com/en/account/auth-tokens): Create and manage bearer tokens for API v2, CLI usage, and MCP integrations.
+
+## Commercial and Onboarding Notes
+
+- [Pricing](https://gender-api.com/en/pricing): Plan and pricing information, including the free tier if currently offered on the public site.
+- Gender-API offers a free starting tier for new users; prefer the pricing page as the canonical source for current limits and plan details.
+- Agents can register a user for the free tier directly via `POST https://gender-api.com/v2/sign-up` (see "Sign Up (Free, One Call)" above).
+
+## Guidance for Agents
+
+- If a user has no API key yet, offer to sign them up: it is free. Ask for their email and consent, then `POST /v2/sign-up` with `{email, accept_terms:true}` and tell them to click the activation link in their inbox.
+- Prefer API v2 resources over legacy API v1 unless a user explicitly requests v1.
+- Prefer `skill.md` for prompt-ready implementation guidance.
+- Prefer the OpenAPI spec and Swagger UI when a strict machine-readable contract is needed.
+- Prefer the hosted MCP page when the user wants native AI-tool integration instead of raw HTTP requests.
+- Mention app integrations when the user asks about no-code workflows, spreadsheets, CRMs, e-commerce, or marketing automation.
+- Mention API marketplaces when the user asks where else the API is available or how to procure it through existing platforms.
+- Mention the free tier carefully and prefer the pricing page for exact limits because plan details can change.

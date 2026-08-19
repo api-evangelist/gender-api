@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gender Get Get Country Of Origin API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Country Of Origin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get likely country of origin for a name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gender-api.com/get-country-of-origin",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the most likely country (or list of countries) of origin for the supplied first or last name. Costs more credits per query than /get."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
