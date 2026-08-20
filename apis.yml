@@ -28,6 +28,13 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 tags:
+  - Artificial Intelligence
+  - Demographics
+  - Gender
+  - Identity
+  - Name
+  - Personal Data
+tags_raw:
   - AI
   - Demographics
   - Gender
@@ -40,7 +47,8 @@ apis:
   description: The Get API from Gender API — 1 operation(s) for get.
   humanURL: https://gender-api.com/
   baseURL: https://gender-api.com
-  tags:
+  tags: []
+  tags_raw:
   - Get
   properties:
   - type: OpenAPI
