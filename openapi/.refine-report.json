@@ -1,9 +1,7 @@
 {
   "provider": "gender-api",
   "sources": [
-    "gender-api-get-api-openapi.yml",
-    "gender-api-get-country-of-origin-api-openapi.yml",
-    "gender-api-get-stats-api-openapi.yml"
+    "_original/gender-api-openapi.yml"
   ],
   "outputs": [
     "gender-api-get-api-openapi.yml",
@@ -13,6 +11,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "gender-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "gender-api-openapi.yml: tagged paths GET /get -> Get",
+    "gender-api-openapi.yml: tagged paths GET /get-country-of-origin -> Get Country Of Origin",
+    "gender-api-openapi.yml: tagged paths GET /get-stats -> Get Stats",
+    "gender-api-openapi.yml: declared missing tag: Get",
+    "gender-api-openapi.yml: declared missing tag: Get Country Of Origin",
+    "gender-api-openapi.yml: declared missing tag: Get Stats",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "gender-api-get-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gender-api-get-country-of-origin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gender-api-get-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
