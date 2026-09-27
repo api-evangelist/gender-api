@@ -59,7 +59,6 @@ apis:
   name: Gender API Get API
   description: The Get API from Gender API — 1 operation(s) for get.
   humanURL: https://gender-api.com/
-  baseURL: https://gender-api.com
   tags: []
   tags_raw:
   - Get
@@ -79,7 +78,6 @@ apis:
   description: >-
     The Get Country Of Origin API from Gender API — 1 operation(s) for get country of origin.
   humanURL: https://gender-api.com/
-  baseURL: https://gender-api.com
   tags:
   - Get Country Of Origin
   properties:
@@ -97,7 +95,6 @@ apis:
   name: Gender API Get Stats API
   description: The Get Stats API from Gender API — 1 operation(s) for get stats.
   humanURL: https://gender-api.com/
-  baseURL: https://gender-api.com
   tags:
   - Get Stats
   properties:
