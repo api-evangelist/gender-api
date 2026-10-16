@@ -2,11 +2,14 @@
   "repo": "gender-api",
   "feeds": [
     {
-      "source": "https://gender-api.com/en/privacy",
-      "error": "HTTPError"
+      "source": "https://gender-api.com/en/blog",
+      "feed_url": "https://gender-api.com/en/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 0,
   "agent_pulled": "2026-07-04"
 }
