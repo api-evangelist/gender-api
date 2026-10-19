@@ -55,16 +55,15 @@ tags_raw:
   - Names
   - Personal Data
 apis:
-- aid: gender-api:gender-api-get-api
-  name: Gender API Get API
-  description: The Get API from Gender API — 1 operation(s) for get.
+- aid: gender-api:gender-api-country-of-origin-api
+  name: Gender API Country Of Origin API
+  description: The Country Of Origin API from Gender API — 1 operation(s) for country of origin.
   humanURL: https://gender-api.com/
-  tags: []
-  tags_raw:
-  - Get
+  tags:
+  - Country Of Origin
   properties:
   - type: OpenAPI
-    url: openapi/gender-api-get-api-openapi.yml
+    url: openapi/gender-api-country-of-origin-api-openapi.yml
   - type: Documentation
     url: https://gender-api.com/en/api-docs
   - type: Pricing
@@ -73,16 +72,15 @@ apis:
     url: https://gender-api.com/en/signup
   - type: StatusPage
     url: https://gender-api.com/
-- aid: gender-api:gender-api-get-country-of-origin-api
-  name: Gender API Get Country Of Origin API
-  description: >-
-    The Get Country Of Origin API from Gender API — 1 operation(s) for get country of origin.
+- aid: gender-api:gender-api-gender-api
+  name: Gender API Gender API
+  description: The Gender API from Gender API — 6 operation(s) for gender.
   humanURL: https://gender-api.com/
   tags:
-  - Get Country Of Origin
+  - Gender
   properties:
   - type: OpenAPI
-    url: openapi/gender-api-get-country-of-origin-api-openapi.yml
+    url: openapi/gender-api-gender-api-openapi.yml
   - type: Documentation
     url: https://gender-api.com/en/api-docs
   - type: Pricing
@@ -91,15 +89,32 @@ apis:
     url: https://gender-api.com/en/signup
   - type: StatusPage
     url: https://gender-api.com/
-- aid: gender-api:gender-api-get-stats-api
-  name: Gender API Get Stats API
-  description: The Get Stats API from Gender API — 1 operation(s) for get stats.
+- aid: gender-api:gender-api-statistic-api
+  name: Gender API Statistic API
+  description: The Statistic API from Gender API — 1 operation(s) for statistic.
   humanURL: https://gender-api.com/
   tags:
-  - Get Stats
+  - Statistic
   properties:
   - type: OpenAPI
-    url: openapi/gender-api-get-stats-api-openapi.yml
+    url: openapi/gender-api-statistic-api-openapi.yml
+  - type: Documentation
+    url: https://gender-api.com/en/api-docs
+  - type: Pricing
+    url: https://gender-api.com/en/pricing
+  - type: Signup
+    url: https://gender-api.com/en/signup
+  - type: StatusPage
+    url: https://gender-api.com/
+- aid: gender-api:gender-api-signup-api
+  name: Gender API Signup API
+  description: The Signup API from Gender API — 1 operation(s) for signup.
+  humanURL: https://gender-api.com/
+  tags:
+  - Signup
+  properties:
+  - type: OpenAPI
+    url: openapi/gender-api-signup-api-openapi.yml
   - type: Documentation
     url: https://gender-api.com/en/api-docs
   - type: Pricing

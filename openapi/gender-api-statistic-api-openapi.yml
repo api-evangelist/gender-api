@@ -1,0 +1,114 @@
+openapi: 3.2.0
+info:
+  version: '2.1'
+  title: Gender-API.com Statistic API
+  description: Gender-API hilft dir herauszufinden, ob ein Vorname mehr von männlichen oder weiblichen Personen benutzt wird.
+servers:
+- url: https://gender-api.com/v2
+  description: Main (production) server
+security:
+- bearerToken: []
+tags:
+- name: Statistic
+paths:
+  /statistic:
+    get:
+      summary: With this call you can pull some stats on your account
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatisticResultModel'
+        '400':
+          $ref: '#/components/responses/HttpError'
+        '401':
+          $ref: '#/components/responses/LimitExceededError'
+      tags:
+      - Statistic
+      operationId: getStatistic
+      x-operation-id-source: derived
+components:
+  responses:
+    HttpError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorModel'
+      description: " parameter-first-name-invalid: The \"first_name\" parameter is invalid. The parameter can only be a string with a length from 1 to 50 chars. \n\n parameter-full-name-invalid: The \"full_name\" parameter is invalid. The parameter can only be a string with a length from 3 to 100 chars. \n\n parameter-email-invalid: The \"email\" parameter is invalid. The parameter can only be a string with a length from 3 to 100 chars and must be a valid email address. \n\n invalid-key: Invalid API key. You can find your personal API key in your account. \n\n invalid-country-code: The given country code is not valid. You can find a list of valid country codes in our API docs. \n\n invalid-ip-address: The given ip address is not valid. Please provide either a valid IPv4 or an IPv6 address. \n\n invalid-json: The JSON from the post data is invalid \n\n invalid-locale: The given locale is not valid. You can find a list of valid country codes in our API docs. \n\n invalid-id: The given id is not valid. An id can be either an integer or a string with 50 chars at max. \n\n mandatory-parameter-missing: Mandatory parameter missing. Either first_name, full_name or email must be set. \n\n content-type-missing: Content-Type missing. Please add a \"Content-Type: application/json\" to your API call. \n\n missing-json: We weren't able to find a json body in your API call. Please make sure the body is sent with a POST request to our API endpoint. \n\n too-many-queries: Too many queries in a single API call. authorization-header-missing: Your query misses the \"Authorization\" header with the bearer token. \n\n invalid-auth-token: Invalid authentication token provided. Please log in to your account to find a list of valid tokens or to create a new one. \n\n "
+    LimitExceededError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LimitExceededModel'
+      description: limit-exceeded - Your account has no requests left. The status stays 401 for backwards compatibility, but this is not an authentication error and retrying will not help. The response carries an upgrade_url field with the link to buy more requests.
+  schemas:
+    LimitExceededModel:
+      allOf:
+      - $ref: '#/components/schemas/ErrorModel'
+      properties:
+        status:
+          example: 401
+        type:
+          example: https://gender-api.com/en/api-docs/v2/index/problem-details/limit-exceeded
+        title:
+          example: limit-exceeded
+        detail:
+          example: Your account has no requests left. This is not an authentication error, and retrying will not help. Buy more requests at https://gender-api.com/en/pricing?from=api-limit
+        upgrade_url:
+          type: string
+          format: uri
+          description: Link to the pricing page where more requests can be bought. Show it to the person who manages the account. Only present when title is limit-exceeded.
+          example: https://gender-api.com/en/pricing?from=api-limit
+    ErrorModel:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: error code.
+          example: 400
+        type:
+          type: string
+          description: Link to the error description.
+          example: https://gender-api.com/en/api-docs/v2/index/problem-details/invalid-country-code
+        title:
+          type: string
+          description: error id.
+          example: invalid-country-code
+        detail:
+          type: string
+          description: human readable error description
+          example: The given country code is not valid. You can find a list of valid country codes in our API docs.
+    StatisticResultModel:
+      properties:
+        is_limit_reached:
+          type: boolean
+          example: false
+        remaining_credits:
+          type: integer
+          example: 23456
+        details:
+          type: object
+          properties:
+            credits_used:
+              type: integer
+              example: 0
+            duration:
+              type: string
+              example: 32ms
+        usage_last_month:
+          type: object
+          properties:
+            date:
+              type: string
+              example: 2021-09
+            credits_used:
+              type: integer
+              example: 30446
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'Get an API key here: [https://gender-api.com/en/account/auth-tokens](https://gender-api.com/en/account/auth-tokens)'

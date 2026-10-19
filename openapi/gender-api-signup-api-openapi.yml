@@ -1,0 +1,121 @@
+openapi: 3.2.0
+info:
+  version: '2.1'
+  title: Gender-API.com Sign Up API
+  description: Gender-API hilft dir herauszufinden, ob ein Vorname mehr von männlichen oder weiblichen Personen benutzt wird.
+servers:
+- url: https://gender-api.com/v2
+  description: Main (production) server
+security:
+- bearerToken: []
+tags:
+- name: Signup
+paths:
+  /sign-up:
+    post:
+      summary: Sign up for a free account and receive an API token
+      description: Registers a new user for the free tier (100 requests/month) and returns a random login password and an API bearer token. No first or last name is required. This endpoint is public and does not require authentication. The account starts in "awaiting_activation" and the returned token activates automatically once the user clicks the activation link sent to their email address.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - accept_terms
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The user's email address.
+                  example: user@example.com
+                accept_terms:
+                  type: boolean
+                  description: Must be true. The user must consent to the Terms and Conditions and Privacy Policy.
+                  example: true
+                newsletter:
+                  type: boolean
+                  description: Subscribe to the newsletter.
+                  default: false
+                locale:
+                  type: string
+                  enum:
+                  - en
+                  - de
+                  - es
+                  default: en
+      responses:
+        '201':
+          description: Account created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    format: email
+                  password:
+                    type: string
+                    description: Random login password for the web dashboard.
+                  api_token:
+                    type: string
+                    description: Bearer token for API v2 calls. Activates after email confirmation.
+                  free_requests_per_month:
+                    type: integer
+                    example: 100
+                  status:
+                    type: string
+                    example: awaiting_activation
+                  message:
+                    type: string
+                  docs_url:
+                    type: string
+        '400':
+          $ref: '#/components/responses/HttpError'
+        '429':
+          description: Too many sign-up attempts from your network.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+      tags:
+      - Signup
+      operationId: postSignUp
+      x-operation-id-source: derived
+components:
+  responses:
+    HttpError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorModel'
+      description: " parameter-first-name-invalid: The \"first_name\" parameter is invalid. The parameter can only be a string with a length from 1 to 50 chars. \n\n parameter-full-name-invalid: The \"full_name\" parameter is invalid. The parameter can only be a string with a length from 3 to 100 chars. \n\n parameter-email-invalid: The \"email\" parameter is invalid. The parameter can only be a string with a length from 3 to 100 chars and must be a valid email address. \n\n invalid-key: Invalid API key. You can find your personal API key in your account. \n\n invalid-country-code: The given country code is not valid. You can find a list of valid country codes in our API docs. \n\n invalid-ip-address: The given ip address is not valid. Please provide either a valid IPv4 or an IPv6 address. \n\n invalid-json: The JSON from the post data is invalid \n\n invalid-locale: The given locale is not valid. You can find a list of valid country codes in our API docs. \n\n invalid-id: The given id is not valid. An id can be either an integer or a string with 50 chars at max. \n\n mandatory-parameter-missing: Mandatory parameter missing. Either first_name, full_name or email must be set. \n\n content-type-missing: Content-Type missing. Please add a \"Content-Type: application/json\" to your API call. \n\n missing-json: We weren't able to find a json body in your API call. Please make sure the body is sent with a POST request to our API endpoint. \n\n too-many-queries: Too many queries in a single API call. authorization-header-missing: Your query misses the \"Authorization\" header with the bearer token. \n\n invalid-auth-token: Invalid authentication token provided. Please log in to your account to find a list of valid tokens or to create a new one. \n\n "
+  schemas:
+    ErrorModel:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: error code.
+          example: 400
+        type:
+          type: string
+          description: Link to the error description.
+          example: https://gender-api.com/en/api-docs/v2/index/problem-details/invalid-country-code
+        title:
+          type: string
+          description: error id.
+          example: invalid-country-code
+        detail:
+          type: string
+          description: human readable error description
+          example: The given country code is not valid. You can find a list of valid country codes in our API docs.
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'Get an API key here: [https://gender-api.com/en/account/auth-tokens](https://gender-api.com/en/account/auth-tokens)'

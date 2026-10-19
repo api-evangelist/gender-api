@@ -4,27 +4,31 @@
     "_original/gender-api-openapi.yml"
   ],
   "outputs": [
-    "gender-api-get-api-openapi.yml",
-    "gender-api-get-country-of-origin-api-openapi.yml",
-    "gender-api-get-stats-api-openapi.yml"
+    "gender-api-country-of-origin-api-openapi.yml",
+    "gender-api-gender-api-openapi.yml",
+    "gender-api-sign-up-api-openapi.yml",
+    "gender-api-statistic-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "gender-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "gender-api-openapi.yml: tagged paths GET /get -> Get",
-    "gender-api-openapi.yml: tagged paths GET /get-country-of-origin -> Get Country Of Origin",
-    "gender-api-openapi.yml: tagged paths GET /get-stats -> Get Stats",
-    "gender-api-openapi.yml: declared missing tag: Get",
-    "gender-api-openapi.yml: declared missing tag: Get Country Of Origin",
-    "gender-api-openapi.yml: declared missing tag: Get Stats",
-    "apis.yml register: already-registered"
+    "gender-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "gender-api-openapi.yml: tagged paths POST /gender/by-first-name -> Gender",
+    "gender-api-openapi.yml: tagged paths POST /gender/by-full-name -> Gender",
+    "gender-api-openapi.yml: tagged paths POST /gender/by-email-address -> Gender",
+    "gender-api-openapi.yml: tagged paths POST /gender/by-first-name-multiple -> Gender",
+    "gender-api-openapi.yml: tagged paths POST /gender/by-full-name-multiple -> Gender",
+    "gender-api-openapi.yml: tagged paths POST /gender/by-email-address-multiple -> Gender",
+    "gender-api-openapi.yml: tagged paths POST /country-of-origin -> Country Of Origin",
+    "gender-api-openapi.yml: tagged paths GET /statistic -> Statistic",
+    "gender-api-openapi.yml: tagged paths POST /sign-up -> Sign Up",
+    "gender-api-openapi.yml: declared missing tag: Country Of Origin",
+    "gender-api-openapi.yml: declared missing tag: Gender",
+    "gender-api-openapi.yml: declared missing tag: Sign Up",
+    "gender-api-openapi.yml: declared missing tag: Statistic",
+    "apis.yml register: written (+4 apis, 4 total)"
   ],
-  "skipped": [
-    "gender-api-get-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "gender-api-get-country-of-origin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "gender-api-get-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
