@@ -735,3 +735,9 @@ components:
       scheme: bearer
       bearerFormat: JWT
       description: 'Get an API key here: [https://gender-api.com/en/account/auth-tokens](https://gender-api.com/en/account/auth-tokens)'
+x-provenance:
+  method: harvested
+  publisher: Gender API
+  source: https://gender-api.com/openapi/openapi.yml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
