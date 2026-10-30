@@ -1,4 +1,4 @@
-# Gender API (gender-api)
+# Gender API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,69 +66,123 @@
 
 Gender-API is an AI-powered service that determines whether a first name is more likely to be used by males or females, with optional localization by country, IP address, or browser locale. The API returns a gender prediction with an accuracy score and supports multi-name lookups, email parsing, full-name splitting, and country-of-origin queries. Gender-API is delivered as a metered REST API with credit-based subscription plans and integrates with Zapier, Postman, Google Sheets, and HubSpot.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Demographics · Gender · Identity · Name · Personal Data
 
-## Scope
+## Gender API on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Gender API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gender-api/](https://apis.io/providers/gender-api/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- AI
-- Demographics
-- Gender
-- Identity
-- Names
-- Personal Data
+- [Gender API Get API](https://apis.io/apis/gender-api/gender-api-get-api/) — The Get API from Gender API — 1 operation(s) for get.
+- [Gender API Get Country Of Origin API](https://apis.io/apis/gender-api/gender-api-get-country-of-origin-api/) — The Get Country Of Origin API from Gender API — 1 operation(s) for get country of origin.
+- [Gender API Get Stats API](https://apis.io/apis/gender-api/gender-api-get-stats-api/) — The Get Stats API from Gender API — 1 operation(s) for get stats.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-07
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Gender API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Gender-API determines whether a first name is more likely used by males or females, with optional localization by country, IP address, or browser locale. Supports email parsing, full-name splitting, multi-name lookups, and country-of-origin queries.
+- [Gender Api Agentic Access](https://apis.io/agentic-access/gender-api/gender-api-agentic-access/)
 
-- **Human URL:** [https://gender-api.com/](https://gender-api.com/)
-- **Base URL:** `https://gender-api.com`
+#### Collections (4)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- AI
-- Gender
-- Names
+- [Gender API](https://apis.io/collections/gender-api/open-gender-api/)
+- [Gender Get API](https://apis.io/collections/gender-api/open-gender-api-get-api/)
+- [Gender Get Get Country Of Origin API](https://apis.io/collections/gender-api/open-gender-api-get-country-of-origin-api/)
+- [Gender Get Get Stats API](https://apis.io/collections/gender-api/open-gender-api-get-stats-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://gender-api.com/en/api-docs)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/gender-api/refs/heads/main/openapi/gender-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Pricing](https://gender-api.com/en/pricing)
-- [Sign Up](https://gender-api.com/en/signup)
-- [Status Page](https://gender-api.com/)
-- [Postman Collection](collections/gender-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gender-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Gender Api Authentication](https://apis.io/security/gender-api/gender-api-authentication/)
+- [Gender Api Domain Security](https://apis.io/security/gender-api/gender-api-domain-security/)
 
-- [GitHub Organization](https://github.com/GenderAPI)
-- [LinkedIn](https://www.linkedin.com/company/genderapi)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Gender Api Plans Pricing](https://apis.io/plans/gender-api/gender-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Gender Api Rate Limits](https://apis.io/rate-limits/gender-api/gender-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Gender Api Finops](https://apis.io/finops/gender-api/gender-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://gender-api.com/)
 - [Documentation](https://gender-api.com/en/api-docs)
 - [Pricing](https://gender-api.com/en/pricing)
-- [Sign Up](https://gender-api.com/en/signup)
-- [Login](https://gender-api.com/en/login)
-- [Contact](https://gender-api.com/en/contact)
-- [Terms of Service](https://gender-api.com/en/terms-and-conditions)
-- [Privacy Policy](https://gender-api.com/en/privacy)
 - [Blog](https://gender-api.com/en/blog)
-- [L L Ms Txt](https://gender-api.com/llms.txt)
+- [Terms of service](https://gender-api.com/en/terms-and-conditions)
+- [Privacy policy](https://gender-api.com/en/privacy)
+- [GitHub](https://github.com/GenderAPI)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 30.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 46.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 25.0 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gender-api/](https://apis.io/providers/gender-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gender API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gender-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
